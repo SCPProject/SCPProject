@@ -1,14 +1,24 @@
 //
-//  SCPMeViewController.m
-//  SCPProject
+//  SelfViewController.m
+//  LuxuryShow奢品秀
 //
-//  Created by 刘蒲艳 on 15/8/24.
-//  Copyright (c) 2015年 liupuyan. All rights reserved.
+//  Created by 韩辉 on 15/8/23.
+//  Copyright (c) 2015年 韩辉. All rights reserved.
 //
 
 #import "SCPMeViewController.h"
 
 @interface SCPMeViewController ()
+/** 整个View */
+@property (strong, nonatomic) IBOutlet UIView *holeView;
+/** show图片 */
+@property (weak, nonatomic) IBOutlet UIImageView *showImageView;
+/** 整个按钮的View */
+@property (weak, nonatomic) IBOutlet UIView *buttonView;
+/** 电话号码textField */
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
+/** 密码textField */
+@property (weak, nonatomic) IBOutlet UITextField *pswNumField;
 
 @end
 
@@ -16,22 +26,68 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"登陆";
+
+    //增加监听，当键盘出现或改变时收出消息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    //增加监听，当键退出时收出消息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+
+}
+- (void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+    [self.phoneNumTextField resignFirstResponder];
+    [self.pswNumField resignFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//当键盘出现或改变时调用
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height;
+    NSLog(@"%@",NSStringFromCGRect(self.holeView.frame));
+    CGRect frame = self.holeView.frame;
+    frame.origin.y -= 70;
+    self.holeView.frame = frame;
+
+    // 设置showView的隐藏
+    self.showImageView.hidden = YES;
+    // 设置按钮View的隐藏
+    self.buttonView.hidden = YES;
+
+
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//当键退出时调用
+- (void)keyboardWillHide:(NSNotification *)aNotification
+{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height;
+    
+    CGRect frame = self.holeView.frame;
+    frame.origin.y += 70;
+    self.holeView.frame = frame;
+    // 设置showView的显示
+    self.showImageView.hidden = NO;
+    // 设置按钮View的显示
+    self.buttonView.hidden = NO;
+    
 }
-*/
+
 
 @end
