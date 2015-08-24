@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SCPTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 设置状态颜色
+    application.statusBarStyle = UIStatusBarStyleLightContent;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    SCPTabBarController *tabbar = [[SCPTabBarController alloc] init];
+    
+    self.window.rootViewController = tabbar;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

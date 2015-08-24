@@ -9,11 +9,20 @@
 /* Begin PBXBuildFile section */
 		AFF4F08A324E294C1A95AA6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D32DB77AAAD9C38731C48A39 /* libPods.a */; };
 		C4D952F61B8A381E0087FD98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D952F51B8A381E0087FD98 /* main.m */; };
-		C4D952FF1B8A381E0087FD98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D952FD1B8A381E0087FD98 /* Main.storyboard */; };
 		C4D953011B8A381E0087FD98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D953001B8A381E0087FD98 /* Images.xcassets */; };
 		C4D953041B8A381E0087FD98 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D953021B8A381E0087FD98 /* LaunchScreen.xib */; };
 		C4D953101B8A381E0087FD98 /* SCPProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9530F1B8A381E0087FD98 /* SCPProjectTests.m */; };
 		C4D953321B8A39090087FD98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D953281B8A39090087FD98 /* AppDelegate.m */; };
+		C4EDDBA61B8B366800DB6679 /* UIView+SCPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBA51B8B366800DB6679 /* UIView+SCPExtension.m */; };
+		C4EDDBB31B8B36A500DB6679 /* UIImage+SCPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBAC1B8B36A500DB6679 /* UIImage+SCPExtension.m */; };
+		C4EDDBBC1B8B36B300DB6679 /* SCPConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBB71B8B36B300DB6679 /* SCPConst.m */; };
+		C4EDDBC21B8B3DB300DB6679 /* SCPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBC11B8B3DB300DB6679 /* SCPNavigationController.m */; };
+		C4EDDBC51B8B3DC700DB6679 /* SCPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBC41B8B3DC700DB6679 /* SCPTabBarController.m */; };
+		C4EDDBC81B8B3E3700DB6679 /* SCPClobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBC71B8B3E3700DB6679 /* SCPClobalViewController.m */; };
+		C4EDDBCB1B8B3E5C00DB6679 /* SCPSaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBCA1B8B3E5C00DB6679 /* SCPSaleViewController.m */; };
+		C4EDDBCE1B8B3E6D00DB6679 /* SCPGlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBCD1B8B3E6D00DB6679 /* SCPGlobalViewController.m */; };
+		C4EDDBD11B8B3E7800DB6679 /* SCPMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBD01B8B3E7800DB6679 /* SCPMeViewController.m */; };
+		C4EDDBD41B8B3F2400DB6679 /* SCPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +39,6 @@
 		C4D952F01B8A381E0087FD98 /* SCPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D952F41B8A381E0087FD98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D952F51B8A381E0087FD98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4D952FE1B8A381E0087FD98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4D953001B8A381E0087FD98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C4D953031B8A381E0087FD98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C4D953091B8A381E0087FD98 /* SCPProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCPProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +46,27 @@
 		C4D9530F1B8A381E0087FD98 /* SCPProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPProjectTests.m; sourceTree = "<group>"; };
 		C4D953271B8A39090087FD98 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4D953281B8A39090087FD98 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C4EDDBA41B8B366800DB6679 /* UIView+SCPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SCPExtension.h"; sourceTree = "<group>"; };
+		C4EDDBA51B8B366800DB6679 /* UIView+SCPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SCPExtension.m"; sourceTree = "<group>"; };
+		C4EDDBAB1B8B36A500DB6679 /* UIImage+SCPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SCPExtension.h"; sourceTree = "<group>"; };
+		C4EDDBAC1B8B36A500DB6679 /* UIImage+SCPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SCPExtension.m"; sourceTree = "<group>"; };
+		C4EDDBB61B8B36B300DB6679 /* SCPConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPConst.h; sourceTree = "<group>"; };
+		C4EDDBB71B8B36B300DB6679 /* SCPConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPConst.m; sourceTree = "<group>"; };
+		C4EDDBBF1B8B3A4500DB6679 /* scp.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scp.pch; sourceTree = "<group>"; };
+		C4EDDBC01B8B3DB300DB6679 /* SCPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPNavigationController.h; sourceTree = "<group>"; };
+		C4EDDBC11B8B3DB300DB6679 /* SCPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPNavigationController.m; sourceTree = "<group>"; };
+		C4EDDBC31B8B3DC700DB6679 /* SCPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPTabBarController.h; sourceTree = "<group>"; };
+		C4EDDBC41B8B3DC700DB6679 /* SCPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPTabBarController.m; sourceTree = "<group>"; };
+		C4EDDBC61B8B3E3700DB6679 /* SCPClobalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPClobalViewController.h; sourceTree = "<group>"; };
+		C4EDDBC71B8B3E3700DB6679 /* SCPClobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPClobalViewController.m; sourceTree = "<group>"; };
+		C4EDDBC91B8B3E5C00DB6679 /* SCPSaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPSaleViewController.h; sourceTree = "<group>"; };
+		C4EDDBCA1B8B3E5C00DB6679 /* SCPSaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPSaleViewController.m; sourceTree = "<group>"; };
+		C4EDDBCC1B8B3E6D00DB6679 /* SCPGlobalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPGlobalViewController.h; sourceTree = "<group>"; };
+		C4EDDBCD1B8B3E6D00DB6679 /* SCPGlobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPGlobalViewController.m; sourceTree = "<group>"; };
+		C4EDDBCF1B8B3E7800DB6679 /* SCPMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPMeViewController.h; sourceTree = "<group>"; };
+		C4EDDBD01B8B3E7800DB6679 /* SCPMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPMeViewController.m; sourceTree = "<group>"; };
+		C4EDDBD21B8B3F2400DB6679 /* SCPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPHomeViewController.h; sourceTree = "<group>"; };
+		C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPHomeViewController.m; sourceTree = "<group>"; };
 		D32DB77AAAD9C38731C48A39 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E214A6D865F5930FAC592943 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F2AB383CC0F68C2E48387E03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				C4D953191B8A39090087FD98 /* Classes */,
-				C4D952FD1B8A381E0087FD98 /* Main.storyboard */,
 				C4D953001B8A381E0087FD98 /* Images.xcassets */,
 				C4D953021B8A381E0087FD98 /* LaunchScreen.xib */,
 				C4D952F31B8A381E0087FD98 /* Supporting Files */,
@@ -116,6 +144,7 @@
 			children = (
 				C4D952F41B8A381E0087FD98 /* Info.plist */,
 				C4D952F51B8A381E0087FD98 /* main.m */,
+				C4EDDBBF1B8B3A4500DB6679 /* scp.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,11 +169,11 @@
 		C4D953191B8A39090087FD98 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C4D9531A1B8A39090087FD98 /* Global */,
 				C4D9531E1B8A39090087FD98 /* Home */,
+				C4D9532E1B8A39090087FD98 /* Sale */,
+				C4D9531A1B8A39090087FD98 /* Global */,
 				C4D953221B8A39090087FD98 /* Me */,
 				C4D953261B8A39090087FD98 /* Other */,
-				C4D9532E1B8A39090087FD98 /* Sale */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -162,6 +191,10 @@
 		C4D9531B1B8A39090087FD98 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4EDDBC61B8B3E3700DB6679 /* SCPClobalViewController.h */,
+				C4EDDBC71B8B3E3700DB6679 /* SCPClobalViewController.m */,
+				C4EDDBCC1B8B3E6D00DB6679 /* SCPGlobalViewController.h */,
+				C4EDDBCD1B8B3E6D00DB6679 /* SCPGlobalViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +226,8 @@
 		C4D9531F1B8A39090087FD98 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4EDDBD21B8B3F2400DB6679 /* SCPHomeViewController.h */,
+				C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,6 +259,8 @@
 		C4D953231B8A39090087FD98 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4EDDBCF1B8B3E7800DB6679 /* SCPMeViewController.h */,
+				C4EDDBD01B8B3E7800DB6679 /* SCPMeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +296,10 @@
 		C4D953291B8A39090087FD98 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C4EDDBAB1B8B36A500DB6679 /* UIImage+SCPExtension.h */,
+				C4EDDBAC1B8B36A500DB6679 /* UIImage+SCPExtension.m */,
+				C4EDDBA41B8B366800DB6679 /* UIView+SCPExtension.h */,
+				C4EDDBA51B8B366800DB6679 /* UIView+SCPExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -266,6 +307,10 @@
 		C4D9532A1B8A39090087FD98 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4EDDBC01B8B3DB300DB6679 /* SCPNavigationController.h */,
+				C4EDDBC11B8B3DB300DB6679 /* SCPNavigationController.m */,
+				C4EDDBC31B8B3DC700DB6679 /* SCPTabBarController.h */,
+				C4EDDBC41B8B3DC700DB6679 /* SCPTabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,6 +325,8 @@
 		C4D9532C1B8A39090087FD98 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				C4EDDBB61B8B36B300DB6679 /* SCPConst.h */,
+				C4EDDBB71B8B36B300DB6679 /* SCPConst.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -304,6 +351,8 @@
 		C4D9532F1B8A39090087FD98 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4EDDBC91B8B3E5C00DB6679 /* SCPSaleViewController.h */,
+				C4EDDBCA1B8B3E5C00DB6679 /* SCPSaleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -368,6 +417,7 @@
 		C4D952E81B8A381E0087FD98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SCP;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = liupuyan;
 				TargetAttributes = {
@@ -404,7 +454,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4D952FF1B8A381E0087FD98 /* Main.storyboard in Resources */,
 				C4D953041B8A381E0087FD98 /* LaunchScreen.xib in Resources */,
 				C4D953011B8A381E0087FD98 /* Images.xcassets in Resources */,
 			);
@@ -457,8 +506,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4EDDBD41B8B3F2400DB6679 /* SCPHomeViewController.m in Sources */,
+				C4EDDBCE1B8B3E6D00DB6679 /* SCPGlobalViewController.m in Sources */,
+				C4EDDBC21B8B3DB300DB6679 /* SCPNavigationController.m in Sources */,
+				C4EDDBD11B8B3E7800DB6679 /* SCPMeViewController.m in Sources */,
+				C4EDDBB31B8B36A500DB6679 /* UIImage+SCPExtension.m in Sources */,
+				C4EDDBBC1B8B36B300DB6679 /* SCPConst.m in Sources */,
 				C4D953321B8A39090087FD98 /* AppDelegate.m in Sources */,
 				C4D952F61B8A381E0087FD98 /* main.m in Sources */,
+				C4EDDBA61B8B366800DB6679 /* UIView+SCPExtension.m in Sources */,
+				C4EDDBCB1B8B3E5C00DB6679 /* SCPSaleViewController.m in Sources */,
+				C4EDDBC81B8B3E3700DB6679 /* SCPClobalViewController.m in Sources */,
+				C4EDDBC51B8B3DC700DB6679 /* SCPTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,14 +540,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C4D952FD1B8A381E0087FD98 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4D952FE1B8A381E0087FD98 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C4D953021B8A381E0087FD98 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -585,6 +636,9 @@
 			baseConfigurationReference = F2AB383CC0F68C2E48387E03 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SCPProject/scp.pch";
 				INFOPLIST_FILE = SCPProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -596,6 +650,9 @@
 			baseConfigurationReference = E214A6D865F5930FAC592943 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SCPProject/scp.pch";
 				INFOPLIST_FILE = SCPProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
