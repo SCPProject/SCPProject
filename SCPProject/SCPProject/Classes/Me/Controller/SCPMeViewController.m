@@ -7,6 +7,8 @@
 //
 
 #import "SCPMeViewController.h"
+#import "SCPFindPswViewController.h"
+#import "SCPSpeedResignViewController.h"
 
 @interface SCPMeViewController ()
 /** 整个View */
@@ -86,6 +88,32 @@
     self.showImageView.hidden = NO;
     // 设置按钮View的显示
     self.buttonView.hidden = NO;
+    
+}
+
+/** 立即登录 */
+- (IBAction)loginNow {
+    
+}
+/** 新浪微博登陆 */
+- (IBAction)sinaLogin {
+    
+}
+/** 微信登陆 */
+- (IBAction)weChatLogin {
+    
+}
+/** 快速注册 */
+- (IBAction)speedLogin {
+    
+    SCPSpeedResignViewController *speedResignVc = [[SCPSpeedResignViewController alloc] init];
+    [self.navigationController pushViewController:speedResignVc animated:YES];
+    
+}
+/** 忘记密码 */
+- (IBAction)forgetPsw {
+    SCPFindPswViewController *findVc = [[SCPFindPswViewController alloc] init];
+    [self.navigationController pushViewController:findVc animated:YES];
     
 }
 
