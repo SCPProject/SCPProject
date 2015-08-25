@@ -23,6 +23,33 @@
     
     [navBar setTitleTextAttributes:attrs];
 }
+/**
+ * 拦截所有push近来的控制器
+ */
+- (void)pushViewController:(nonnull UIViewController *)viewController animated:(BOOL)animated
+{
+    if (self.childViewControllers.count > 0) { // 如果push进来得不是第一个控制器
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        // 让按钮内部所有内容左对齐
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [button sizeToFit];
+        [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        // 设置导航栏左边的Item
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        // 隐藏底部的Tabbar
+        viewController.hidesBottomBarWhenPushed = YES;
+    }
+    
+    // 这句super的push要放在后面, 让viewController可以覆盖上面设置的leftBarButtonItem
+    [super pushViewController:viewController animated:animated];
+}
+
+// 监听返回按钮的点击
+- (void)back
+{
+    [self popViewControllerAnimated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

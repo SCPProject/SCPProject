@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCPSpeedResignViewController">
+            <connections>
+                <outlet property="phineNum" destination="93B-AZ-H8V" id="aak-dD-S1K"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="93B-AZ-H8V">
+                    <rect key="frame" x="7" y="15" width="586" height="35"/>
+                    <color key="backgroundColor" red="0.22549715909090895" green="0.22549715909090895" blue="0.22549715909090895" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="lCT-fC-4Ul"/>
+                    </constraints>
+                    <color key="textColor" red="0.54371843434343436" green="0.54371843434343436" blue="0.54371843434343436" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9de-2P-yHA">
+                    <rect key="frame" x="7" y="58" width="586" height="35"/>
+                    <color key="backgroundColor" red="1" green="0.977164755" blue="0.17955106830000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="BWB-gZ-N5Z"/>
+                    </constraints>
+                    <state key="normal" title="获取验证码">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="getCheckOutNum" destination="-1" eventType="touchUpInside" id="qSF-x7-POc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9de-2P-yHA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="7" id="5eV-OS-lli"/>
+                <constraint firstAttribute="trailing" secondItem="93B-AZ-H8V" secondAttribute="trailing" constant="7" id="BZS-5t-bML"/>
+                <constraint firstItem="93B-AZ-H8V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="7" id="JKG-CZ-dP2"/>
+                <constraint firstAttribute="trailing" secondItem="9de-2P-yHA" secondAttribute="trailing" constant="7" id="av8-jk-b1J"/>
+                <constraint firstItem="93B-AZ-H8V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="urN-2U-BYI"/>
+                <constraint firstItem="9de-2P-yHA" firstAttribute="top" secondItem="93B-AZ-H8V" secondAttribute="bottom" constant="8" id="z5D-Eu-hPK"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

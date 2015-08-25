@@ -16,22 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self setupTitlesView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+/**
+ * 设置顶部的标签栏
+ */
 
-/*
-#pragma mark - Navigation
+- (void)setupTitlesView
+{
+// 标签栏整体
+    UIView *titlesView = [[UIView alloc] init];
+    titlesView.backgroundColor = [UIColor redColor];
+    titlesView.scp_width = self.view.scp_width;
+    titlesView.scp_height = 35;
+    titlesView.scp_y = -29;
+    [self.view addSubview:titlesView];
+    
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
 
 @end
