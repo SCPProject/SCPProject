@@ -7,3 +7,8 @@
 //
 
 #import "SCPConst.h"
+
+// 导航控制器高度
+CGFloat const SCPNavH = 44;
+// 状态栏高度
+CGFloat const SCPStatusH = 20;

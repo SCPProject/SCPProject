@@ -23,6 +23,14 @@
 		C4EDDBCE1B8B3E6D00DB6679 /* SCPGlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBCD1B8B3E6D00DB6679 /* SCPGlobalViewController.m */; };
 		C4EDDBD11B8B3E7800DB6679 /* SCPMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBD01B8B3E7800DB6679 /* SCPMeViewController.m */; };
 		C4EDDBD41B8B3F2400DB6679 /* SCPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */; };
+		C4F7C3A91B8B6DA70096D1A6 /* SCPAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7C3A81B8B6DA70096D1A6 /* SCPAllViewController.m */; };
+		C4F7C3AC1B8B6DD90096D1A6 /* SCPShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7C3AB1B8B6DD90096D1A6 /* SCPShowViewController.m */; };
+		C4F7C3B01B8B6E3A0096D1A6 /* SCPShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7C3AE1B8B6E3A0096D1A6 /* SCPShowCell.m */; };
+		C4F7C3B11B8B6E3A0096D1A6 /* SCPShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F7C3AF1B8B6E3A0096D1A6 /* SCPShowCell.xib */; };
+		C4F7C3B51B8B6EA50096D1A6 /* SCPAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7C3B31B8B6EA50096D1A6 /* SCPAllCell.m */; };
+		C4F7C3B61B8B6EA50096D1A6 /* SCPAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F7C3B41B8B6EA50096D1A6 /* SCPAllCell.xib */; };
+		C4F7C3C41B8B807B0096D1A6 /* SCPImagesScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7C3C21B8B807B0096D1A6 /* SCPImagesScroll.m */; };
+		C4F7C3C51B8B807B0096D1A6 /* SCPImagesScroll.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F7C3C31B8B807B0096D1A6 /* SCPImagesScroll.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +75,19 @@
 		C4EDDBD01B8B3E7800DB6679 /* SCPMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPMeViewController.m; sourceTree = "<group>"; };
 		C4EDDBD21B8B3F2400DB6679 /* SCPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPHomeViewController.h; sourceTree = "<group>"; };
 		C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPHomeViewController.m; sourceTree = "<group>"; };
+		C4F7C3A71B8B6DA70096D1A6 /* SCPAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPAllViewController.h; sourceTree = "<group>"; };
+		C4F7C3A81B8B6DA70096D1A6 /* SCPAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPAllViewController.m; sourceTree = "<group>"; };
+		C4F7C3AA1B8B6DD90096D1A6 /* SCPShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPShowViewController.h; sourceTree = "<group>"; };
+		C4F7C3AB1B8B6DD90096D1A6 /* SCPShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPShowViewController.m; sourceTree = "<group>"; };
+		C4F7C3AD1B8B6E3A0096D1A6 /* SCPShowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPShowCell.h; sourceTree = "<group>"; };
+		C4F7C3AE1B8B6E3A0096D1A6 /* SCPShowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPShowCell.m; sourceTree = "<group>"; };
+		C4F7C3AF1B8B6E3A0096D1A6 /* SCPShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCPShowCell.xib; sourceTree = "<group>"; };
+		C4F7C3B21B8B6EA50096D1A6 /* SCPAllCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPAllCell.h; sourceTree = "<group>"; };
+		C4F7C3B31B8B6EA50096D1A6 /* SCPAllCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPAllCell.m; sourceTree = "<group>"; };
+		C4F7C3B41B8B6EA50096D1A6 /* SCPAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCPAllCell.xib; sourceTree = "<group>"; };
+		C4F7C3C11B8B807B0096D1A6 /* SCPImagesScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPImagesScroll.h; sourceTree = "<group>"; };
+		C4F7C3C21B8B807B0096D1A6 /* SCPImagesScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPImagesScroll.m; sourceTree = "<group>"; };
+		C4F7C3C31B8B807B0096D1A6 /* SCPImagesScroll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCPImagesScroll.xib; sourceTree = "<group>"; };
 		D32DB77AAAD9C38731C48A39 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E214A6D865F5930FAC592943 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F2AB383CC0F68C2E48387E03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +249,10 @@
 			children = (
 				C4EDDBD21B8B3F2400DB6679 /* SCPHomeViewController.h */,
 				C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */,
+				C4F7C3A71B8B6DA70096D1A6 /* SCPAllViewController.h */,
+				C4F7C3A81B8B6DA70096D1A6 /* SCPAllViewController.m */,
+				C4F7C3AA1B8B6DD90096D1A6 /* SCPShowViewController.h */,
+				C4F7C3AB1B8B6DD90096D1A6 /* SCPShowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +267,15 @@
 		C4D953211B8A39090087FD98 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4F7C3AD1B8B6E3A0096D1A6 /* SCPShowCell.h */,
+				C4F7C3AE1B8B6E3A0096D1A6 /* SCPShowCell.m */,
+				C4F7C3AF1B8B6E3A0096D1A6 /* SCPShowCell.xib */,
+				C4F7C3B21B8B6EA50096D1A6 /* SCPAllCell.h */,
+				C4F7C3B31B8B6EA50096D1A6 /* SCPAllCell.m */,
+				C4F7C3B41B8B6EA50096D1A6 /* SCPAllCell.xib */,
+				C4F7C3C11B8B807B0096D1A6 /* SCPImagesScroll.h */,
+				C4F7C3C21B8B807B0096D1A6 /* SCPImagesScroll.m */,
+				C4F7C3C31B8B807B0096D1A6 /* SCPImagesScroll.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +489,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4D953041B8A381E0087FD98 /* LaunchScreen.xib in Resources */,
+				C4F7C3C51B8B807B0096D1A6 /* SCPImagesScroll.xib in Resources */,
+				C4F7C3B11B8B6E3A0096D1A6 /* SCPShowCell.xib in Resources */,
+				C4F7C3B61B8B6EA50096D1A6 /* SCPAllCell.xib in Resources */,
 				C4D953011B8A381E0087FD98 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,17 +543,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4F7C3AC1B8B6DD90096D1A6 /* SCPShowViewController.m in Sources */,
 				C4EDDBD41B8B3F2400DB6679 /* SCPHomeViewController.m in Sources */,
 				C4EDDBCE1B8B3E6D00DB6679 /* SCPGlobalViewController.m in Sources */,
 				C4EDDBC21B8B3DB300DB6679 /* SCPNavigationController.m in Sources */,
 				C4EDDBD11B8B3E7800DB6679 /* SCPMeViewController.m in Sources */,
 				C4EDDBB31B8B36A500DB6679 /* UIImage+SCPExtension.m in Sources */,
+				C4F7C3B51B8B6EA50096D1A6 /* SCPAllCell.m in Sources */,
 				C4EDDBBC1B8B36B300DB6679 /* SCPConst.m in Sources */,
+				C4F7C3C41B8B807B0096D1A6 /* SCPImagesScroll.m in Sources */,
 				C4D953321B8A39090087FD98 /* AppDelegate.m in Sources */,
 				C4D952F61B8A381E0087FD98 /* main.m in Sources */,
 				C4EDDBA61B8B366800DB6679 /* UIView+SCPExtension.m in Sources */,
 				C4EDDBCB1B8B3E5C00DB6679 /* SCPSaleViewController.m in Sources */,
 				C4EDDBC81B8B3E3700DB6679 /* SCPClobalViewController.m in Sources */,
+				C4F7C3B01B8B6E3A0096D1A6 /* SCPShowCell.m in Sources */,
+				C4F7C3A91B8B6DA70096D1A6 /* SCPAllViewController.m in Sources */,
 				C4EDDBC51B8B3DC700DB6679 /* SCPTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
