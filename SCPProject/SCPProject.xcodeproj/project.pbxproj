@@ -18,15 +18,14 @@
 		C4EDDBBC1B8B36B300DB6679 /* SCPConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBB71B8B36B300DB6679 /* SCPConst.m */; };
 		C4EDDBC21B8B3DB300DB6679 /* SCPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBC11B8B3DB300DB6679 /* SCPNavigationController.m */; };
 		C4EDDBC51B8B3DC700DB6679 /* SCPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBC41B8B3DC700DB6679 /* SCPTabBarController.m */; };
-		C4EDDBC81B8B3E3700DB6679 /* SCPClobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBC71B8B3E3700DB6679 /* SCPClobalViewController.m */; };
 		C4EDDBCB1B8B3E5C00DB6679 /* SCPSaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBCA1B8B3E5C00DB6679 /* SCPSaleViewController.m */; };
-		C4EDDBCE1B8B3E6D00DB6679 /* SCPGlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBCD1B8B3E6D00DB6679 /* SCPGlobalViewController.m */; };
 		C4EDDBD41B8B3F2400DB6679 /* SCPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */; };
 		E153192E1B8B4504009AEACD /* SCPMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E153192D1B8B4504009AEACD /* SCPMeViewController.xib */; };
 		E15319311B8B45DA009AEACD /* SCPMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15319301B8B45DA009AEACD /* SCPMeViewController.m */; };
 		E15DFDE91B8B4CC80074489D /* SCPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DFDE81B8B4CC80074489D /* SCPTextField.m */; };
 		E17036991B8B9F06006FA3DE /* SCPFindPswViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17036971B8B9F06006FA3DE /* SCPFindPswViewController.m */; };
 		E170369A1B8B9F06006FA3DE /* SCPFindPswViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17036981B8B9F06006FA3DE /* SCPFindPswViewController.xib */; };
+		E1858C111B8C54A0008072CF /* SCPGlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1858C101B8C54A0008072CF /* SCPGlobalViewController.m */; };
 		E1A8F75C1B8BA79800317649 /* SCPSpeedResignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8F75A1B8BA79800317649 /* SCPSpeedResignViewController.m */; };
 		E1A8F75D1B8BA79800317649 /* SCPSpeedResignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A8F75B1B8BA79800317649 /* SCPSpeedResignViewController.xib */; };
 /* End PBXBuildFile section */
@@ -63,12 +62,8 @@
 		C4EDDBC11B8B3DB300DB6679 /* SCPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPNavigationController.m; sourceTree = "<group>"; };
 		C4EDDBC31B8B3DC700DB6679 /* SCPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPTabBarController.h; sourceTree = "<group>"; };
 		C4EDDBC41B8B3DC700DB6679 /* SCPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPTabBarController.m; sourceTree = "<group>"; };
-		C4EDDBC61B8B3E3700DB6679 /* SCPClobalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPClobalViewController.h; sourceTree = "<group>"; };
-		C4EDDBC71B8B3E3700DB6679 /* SCPClobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPClobalViewController.m; sourceTree = "<group>"; };
 		C4EDDBC91B8B3E5C00DB6679 /* SCPSaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPSaleViewController.h; sourceTree = "<group>"; };
 		C4EDDBCA1B8B3E5C00DB6679 /* SCPSaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPSaleViewController.m; sourceTree = "<group>"; };
-		C4EDDBCC1B8B3E6D00DB6679 /* SCPGlobalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPGlobalViewController.h; sourceTree = "<group>"; };
-		C4EDDBCD1B8B3E6D00DB6679 /* SCPGlobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPGlobalViewController.m; sourceTree = "<group>"; };
 		C4EDDBD21B8B3F2400DB6679 /* SCPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPHomeViewController.h; sourceTree = "<group>"; };
 		C4EDDBD31B8B3F2400DB6679 /* SCPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPHomeViewController.m; sourceTree = "<group>"; };
 		D32DB77AAAD9C38731C48A39 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +75,8 @@
 		E17036961B8B9F06006FA3DE /* SCPFindPswViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPFindPswViewController.h; sourceTree = "<group>"; };
 		E17036971B8B9F06006FA3DE /* SCPFindPswViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPFindPswViewController.m; sourceTree = "<group>"; };
 		E17036981B8B9F06006FA3DE /* SCPFindPswViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCPFindPswViewController.xib; sourceTree = "<group>"; };
+		E1858C0F1B8C54A0008072CF /* SCPGlobalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPGlobalViewController.h; sourceTree = "<group>"; };
+		E1858C101B8C54A0008072CF /* SCPGlobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPGlobalViewController.m; sourceTree = "<group>"; };
 		E1A8F7591B8BA79800317649 /* SCPSpeedResignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPSpeedResignViewController.h; sourceTree = "<group>"; };
 		E1A8F75A1B8BA79800317649 /* SCPSpeedResignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPSpeedResignViewController.m; sourceTree = "<group>"; };
 		E1A8F75B1B8BA79800317649 /* SCPSpeedResignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCPSpeedResignViewController.xib; sourceTree = "<group>"; };
@@ -206,10 +203,8 @@
 		C4D9531B1B8A39090087FD98 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C4EDDBC61B8B3E3700DB6679 /* SCPClobalViewController.h */,
-				C4EDDBC71B8B3E3700DB6679 /* SCPClobalViewController.m */,
-				C4EDDBCC1B8B3E6D00DB6679 /* SCPGlobalViewController.h */,
-				C4EDDBCD1B8B3E6D00DB6679 /* SCPGlobalViewController.m */,
+				E1858C0F1B8C54A0008072CF /* SCPGlobalViewController.h */,
+				E1858C101B8C54A0008072CF /* SCPGlobalViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,16 +529,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4EDDBD41B8B3F2400DB6679 /* SCPHomeViewController.m in Sources */,
-				C4EDDBCE1B8B3E6D00DB6679 /* SCPGlobalViewController.m in Sources */,
 				C4EDDBC21B8B3DB300DB6679 /* SCPNavigationController.m in Sources */,
 				C4EDDBB31B8B36A500DB6679 /* UIImage+SCPExtension.m in Sources */,
 				C4EDDBBC1B8B36B300DB6679 /* SCPConst.m in Sources */,
 				C4D953321B8A39090087FD98 /* AppDelegate.m in Sources */,
+				E1858C111B8C54A0008072CF /* SCPGlobalViewController.m in Sources */,
 				C4D952F61B8A381E0087FD98 /* main.m in Sources */,
 				E15DFDE91B8B4CC80074489D /* SCPTextField.m in Sources */,
 				C4EDDBA61B8B366800DB6679 /* UIView+SCPExtension.m in Sources */,
 				C4EDDBCB1B8B3E5C00DB6679 /* SCPSaleViewController.m in Sources */,
-				C4EDDBC81B8B3E3700DB6679 /* SCPClobalViewController.m in Sources */,
 				E17036991B8B9F06006FA3DE /* SCPFindPswViewController.m in Sources */,
 				C4EDDBC51B8B3DC700DB6679 /* SCPTabBarController.m in Sources */,
 				E15319311B8B45DA009AEACD /* SCPMeViewController.m in Sources */,
