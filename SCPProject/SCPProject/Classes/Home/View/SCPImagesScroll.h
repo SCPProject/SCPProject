@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SCPImagesScroll : UIView
-// 保存图片名称
+// 保存图片
 @property (nonatomic,strong) NSArray *imagesArray;
 
 /** 分页的圆点其他颜色 */

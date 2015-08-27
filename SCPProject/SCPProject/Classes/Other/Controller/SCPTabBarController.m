@@ -65,8 +65,6 @@
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [UIImage imageRenderingModeAlwaysOriginalNamed:image];
     vc.tabBarItem.selectedImage = [UIImage imageRenderingModeAlwaysOriginalNamed:selectedImage];
-    // 随机背景颜色
-    vc.view.backgroundColor = SCPColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255));
     // 包装一个导航控制器，添加导航控制器为tabbar控制器的子控制器
     SCPNavigationController *nav = [[SCPNavigationController alloc] initWithRootViewController:vc];
     

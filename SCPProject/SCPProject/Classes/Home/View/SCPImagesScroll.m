@@ -81,8 +81,7 @@
 - (void)setImagesArray:(NSArray *)imagesArray
 {
     _imagesArray = imagesArray;
-    NSString *imageStr = [imagesArray firstObject];
-    self.showImage.image = [UIImage imageNamed:imageStr];
+    self.showImage.image = [imagesArray firstObject];
     self.pageControl.numberOfPages = self.imagesArray.count;
 }
 
@@ -159,8 +158,7 @@
     // 给reuseImageView赋值图片
     self.reuseImage.frame = reuseFrame;
     self.reuseImage.tag = index;
-    NSString *imageStr = self.imagesArray[index];
-    self.reuseImage.image = [UIImage imageNamed:imageStr];
+    self.reuseImage.image = self.imagesArray[index];
     
     if(offset.x <= 0 || offset.x >= self.scrollView.frame.size.width * 2)
     {

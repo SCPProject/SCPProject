@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCPAllShopModel.h"
 
 @interface SCPAllCell : UICollectionViewCell
+/** model */
+@property (nonatomic,strong) SCPAllShopModel *shopModel;
 
++ (instancetype)allCell:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
 @end

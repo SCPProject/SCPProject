@@ -28,6 +28,9 @@
 // 屏幕高度
 #define SCPScreenHeight [UIScreen mainScreen].bounds.size.height
 
+// 项目背景色
+#define SCPMainBackground SCPColor(34, 37, 43)
+
 // 分类文件
 #import "UIView+SCPExtension.h"
 // 定义常量

@@ -14,7 +14,7 @@
 + (void)initialize
 {
 
-    [self getIvars];
+//    [self getIvars];
 }
 
 + (void)getProperties

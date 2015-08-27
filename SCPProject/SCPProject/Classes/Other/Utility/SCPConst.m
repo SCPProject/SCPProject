@@ -12,3 +12,8 @@
 CGFloat const SCPNavH = 44;
 // 状态栏高度
 CGFloat const SCPStatusH = 20;
+// 首页间距
+CGFloat const SCPHomeMargin = 20;
+
+// 奢品秀官方版本
+NSString const *SCPVersion = @"v3.2";

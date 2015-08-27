@@ -11,3 +11,8 @@
 UIKIT_EXTERN CGFloat const SCPNavH;
 // 状态栏高度
 UIKIT_EXTERN CGFloat const SCPStatusH;
+// 首页间距
+UIKIT_EXTERN CGFloat const SCPHomeMargin;
+
+// 奢品秀官方版本
+UIKIT_EXTERN NSString const *SCPVersion;

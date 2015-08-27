@@ -34,4 +34,5 @@
  */
 - (instancetype)imageStyle;
 
+
 @end

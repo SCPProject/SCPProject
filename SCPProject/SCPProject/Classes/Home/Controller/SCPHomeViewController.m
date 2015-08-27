@@ -41,6 +41,9 @@
     
     // 设置导航条
     [self setupNav];
+    
+    // 背景图片
+    self.view.backgroundColor = SCPMainBackground;
 }
 
 - (void)setupNav

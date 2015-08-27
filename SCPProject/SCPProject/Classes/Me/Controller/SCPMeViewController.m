@@ -54,9 +54,6 @@
 - (void)keyboardWillShow:(NSNotification *)aNotification
 {
     //获取键盘的高度
-    NSDictionary *userInfo = [aNotification userInfo];
-    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
     CGRect frame = self.holeView.frame;
     frame.origin.y -= 70;
     self.holeView.frame = frame;
@@ -74,11 +71,6 @@
 - (void)keyboardWillHide:(NSNotification *)aNotification
 {
     //获取键盘的高度
-    NSDictionary *userInfo = [aNotification userInfo];
-    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
-    int height = keyboardRect.size.height;
-    
     CGRect frame = self.holeView.frame;
     frame.origin.y += 70;
     self.holeView.frame = frame;
