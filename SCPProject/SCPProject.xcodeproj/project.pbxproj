@@ -31,6 +31,10 @@
 		C4F7C3B61B8B6EA50096D1A6 /* SCPAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F7C3B41B8B6EA50096D1A6 /* SCPAllCell.xib */; };
 		C4F7C3C41B8B807B0096D1A6 /* SCPImagesScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7C3C21B8B807B0096D1A6 /* SCPImagesScroll.m */; };
 		C4F7C3C51B8B807B0096D1A6 /* SCPImagesScroll.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F7C3C31B8B807B0096D1A6 /* SCPImagesScroll.xib */; };
+		E143E8DE1B8F10C800175AE3 /* SCPGlobleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E143E8DD1B8F10C800175AE3 /* SCPGlobleViewController.m */; };
+		E143E8E11B8F10D700175AE3 /* SCPTAsiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E143E8E01B8F10D700175AE3 /* SCPTAsiaViewController.m */; };
+		E143E8E41B8F10F800175AE3 /* SCPEuropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E143E8E31B8F10F800175AE3 /* SCPEuropViewController.m */; };
+		E143E8E71B8F110A00175AE3 /* SCPNorthAmeracaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E143E8E61B8F110A00175AE3 /* SCPNorthAmeracaViewController.m */; };
 		E153192E1B8B4504009AEACD /* SCPMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E153192D1B8B4504009AEACD /* SCPMeViewController.xib */; };
 		E15319311B8B45DA009AEACD /* SCPMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15319301B8B45DA009AEACD /* SCPMeViewController.m */; };
 		E15DFDE91B8B4CC80074489D /* SCPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DFDE81B8B4CC80074489D /* SCPTextField.m */; };
@@ -97,6 +101,14 @@
 		C4F7C3C21B8B807B0096D1A6 /* SCPImagesScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPImagesScroll.m; sourceTree = "<group>"; };
 		C4F7C3C31B8B807B0096D1A6 /* SCPImagesScroll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCPImagesScroll.xib; sourceTree = "<group>"; };
 		D32DB77AAAD9C38731C48A39 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E143E8DC1B8F10C800175AE3 /* SCPGlobleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPGlobleViewController.h; sourceTree = "<group>"; };
+		E143E8DD1B8F10C800175AE3 /* SCPGlobleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPGlobleViewController.m; sourceTree = "<group>"; };
+		E143E8DF1B8F10D700175AE3 /* SCPTAsiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPTAsiaViewController.h; sourceTree = "<group>"; };
+		E143E8E01B8F10D700175AE3 /* SCPTAsiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPTAsiaViewController.m; sourceTree = "<group>"; };
+		E143E8E21B8F10F800175AE3 /* SCPEuropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPEuropViewController.h; sourceTree = "<group>"; };
+		E143E8E31B8F10F800175AE3 /* SCPEuropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPEuropViewController.m; sourceTree = "<group>"; };
+		E143E8E51B8F110A00175AE3 /* SCPNorthAmeracaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPNorthAmeracaViewController.h; sourceTree = "<group>"; };
+		E143E8E61B8F110A00175AE3 /* SCPNorthAmeracaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPNorthAmeracaViewController.m; sourceTree = "<group>"; };
 		E153192D1B8B4504009AEACD /* SCPMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCPMeViewController.xib; sourceTree = "<group>"; };
 		E153192F1B8B45DA009AEACD /* SCPMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPMeViewController.h; sourceTree = "<group>"; };
 		E15319301B8B45DA009AEACD /* SCPMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPMeViewController.m; sourceTree = "<group>"; };
@@ -235,6 +247,14 @@
 			children = (
 				E1858C0F1B8C54A0008072CF /* SCPGlobalViewController.h */,
 				E1858C101B8C54A0008072CF /* SCPGlobalViewController.m */,
+				E143E8DC1B8F10C800175AE3 /* SCPGlobleViewController.h */,
+				E143E8DD1B8F10C800175AE3 /* SCPGlobleViewController.m */,
+				E143E8DF1B8F10D700175AE3 /* SCPTAsiaViewController.h */,
+				E143E8E01B8F10D700175AE3 /* SCPTAsiaViewController.m */,
+				E143E8E21B8F10F800175AE3 /* SCPEuropViewController.h */,
+				E143E8E31B8F10F800175AE3 /* SCPEuropViewController.m */,
+				E143E8E51B8F110A00175AE3 /* SCPNorthAmeracaViewController.h */,
+				E143E8E61B8F110A00175AE3 /* SCPNorthAmeracaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -587,8 +607,10 @@
 				C4F7C3B51B8B6EA50096D1A6 /* SCPAllCell.m in Sources */,
 				C4EDDBBC1B8B36B300DB6679 /* SCPConst.m in Sources */,
 				C4F7C3C41B8B807B0096D1A6 /* SCPImagesScroll.m in Sources */,
+				E143E8E41B8F10F800175AE3 /* SCPEuropViewController.m in Sources */,
 				C4D953321B8A39090087FD98 /* AppDelegate.m in Sources */,
 				E1858C111B8C54A0008072CF /* SCPGlobalViewController.m in Sources */,
+				E143E8E11B8F10D700175AE3 /* SCPTAsiaViewController.m in Sources */,
 				C4D952F61B8A381E0087FD98 /* main.m in Sources */,
 				C4294D081B8CA25700D92F81 /* SCPAllShopModel.m in Sources */,
 				E15DFDE91B8B4CC80074489D /* SCPTextField.m in Sources */,
@@ -596,11 +618,13 @@
 				C4EDDBA61B8B366800DB6679 /* UIView+SCPExtension.m in Sources */,
 				C4EDDBCB1B8B3E5C00DB6679 /* SCPSaleViewController.m in Sources */,
 				C4F7C3B01B8B6E3A0096D1A6 /* SCPShowCell.m in Sources */,
+				E143E8DE1B8F10C800175AE3 /* SCPGlobleViewController.m in Sources */,
 				C4F7C3A91B8B6DA70096D1A6 /* SCPAllViewController.m in Sources */,
 				E17036991B8B9F06006FA3DE /* SCPFindPswViewController.m in Sources */,
 				C4EDDBC51B8B3DC700DB6679 /* SCPTabBarController.m in Sources */,
 				C44250F01B8CBA8B00C0C1E5 /* UIImageView+SCPExtension.m in Sources */,
 				E15319311B8B45DA009AEACD /* SCPMeViewController.m in Sources */,
+				E143E8E71B8F110A00175AE3 /* SCPNorthAmeracaViewController.m in Sources */,
 				E1A8F75C1B8BA79800317649 /* SCPSpeedResignViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

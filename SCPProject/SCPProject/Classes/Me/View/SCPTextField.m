@@ -51,7 +51,7 @@
         Ivar ivar = ivars[i];
         
         // 打印成员变量名字
-        NSLog(@"%s %s", ivar_getName(ivar), ivar_getTypeEncoding(ivar));
+       // NSLog(@"%s %s", ivar_getName(ivar), ivar_getTypeEncoding(ivar));
     }
     
     // 释放
