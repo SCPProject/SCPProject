@@ -12,6 +12,8 @@
 @interface SCPAllCell : UICollectionViewCell
 /** model */
 @property (nonatomic,strong) SCPAllShopModel *shopModel;
+// 返回单元格的标识
++ (NSString *)scpAllCellID;
 
 + (instancetype)allCell:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
 @end

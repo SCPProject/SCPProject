@@ -22,18 +22,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDiscount;
 // 现价
 @property (weak, nonatomic) IBOutlet UILabel *lblNewPrice;
+// 折扣价与原价的约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *layoutDiscountAndyPrice;
 @end
 
 @implementation SCPAllCell
 
++ (NSString *)scpAllCellID
+{
+    return @"allCell";
+}
+
 + (instancetype)allCell:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"allCell";
-    SCPAllCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    if(cell == nil)
-    {
-        cell = [SCPAllCell viewFromXib];
-    }
+    SCPAllCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self scpAllCellID] forIndexPath:indexPath];
     return cell;
 }
 
@@ -54,8 +56,8 @@
     {
         // 有原价
         self.lblOldPrice.text = [NSString stringWithFormat:@"￥%@",self.shopModel.yprice];
-        self.lblSeperator.hidden = YES;
-        self.lblDiscount.hidden = YES;
+        self.lblSeperator.hidden = NO;
+        self.lblDiscount.hidden = NO;
         self.lblNewPrice.textColor = [UIColor yellowColor];
         
         
@@ -65,18 +67,30 @@
         [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
         [attri addAttribute:NSStrikethroughColorAttributeName value:SCPColor(109, 109, 109) range:NSMakeRange(0, length)];
         [self.lblOldPrice setAttributedText:attri];
+        
+        self.layoutDiscountAndyPrice.constant = SCPHomeMargin;
     }
     else
     {
         // 无原价
         self.lblOldPrice.text = @"";
         [self.lblOldPrice setAttributedText:nil];
-        self.lblSeperator.hidden = NO;
-        self.lblDiscount.hidden = NO;
+        self.lblSeperator.hidden = YES;
+        self.lblDiscount.hidden = YES;
         self.lblNewPrice.textColor = [UIColor whiteColor];
+        
+        self.layoutDiscountAndyPrice.constant = 0;
     }
     self.lblNewPrice.text = [NSString stringWithFormat:@"￥%@",self.shopModel.price];
-    self.lblDiscount.text = [NSString stringWithFormat:@"%f折",self.shopModel.discount];
+    CGFloat num = self.shopModel.discount - (int)self.shopModel.discount;
+    if(num == 0)
+    {
+        self.lblDiscount.text = [NSString stringWithFormat:@"%.0f折",self.shopModel.discount];
+    }
+    else
+    {
+        self.lblDiscount.text = [NSString stringWithFormat:@"%.1f折",self.shopModel.discount];
+    }
     
 }
 @end
