@@ -48,13 +48,17 @@
 {
     
     UIScrollView *contentView = [[UIScrollView alloc] init];
-    contentView.frame = self.view.frame;
+    contentView.frame= self.view.frame;
     contentView.backgroundColor = [UIColor darkGrayColor];
-   
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    button.scp_x = 900;
+    button.scp_y = 100;
+    [contentView addSubview:button];
+    contentView.pagingEnabled = YES;
     contentView.delegate = self;
-    NSLog(@"%@",NSStringFromCGRect([UIScreen mainScreen].bounds));
-    NSLog(@"%@",NSStringFromCGRect(contentView.bounds));
-    contentView.contentSize = CGSizeMake(SCPScreenWidth *self.childViewControllers.count, 0);
+    // NSLog(@"%@",NSStringFromCGRect(self.view.bounds));
+    // NSLog(@"%@",NSStringFromCGRect(contentView.bounds));
+    contentView.contentSize = CGSizeMake(contentView.scp_width *self.childViewControllers.count, 0);
     self.contentView = contentView;
     [self.view addSubview:contentView];
 
@@ -162,15 +166,28 @@
 
 
 #pragma mark - UISCrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(nonnull UIScrollView *)scrollView
+{
+    // 索引
+    NSInteger index = scrollView.contentOffset.x / SCPScreenWidth;
+    NSLog(@"%zd",index);
+    // 取出子控制器
+    UITableViewController *vc = self.childViewControllers[index];
+    vc.view.scp_x = scrollView.contentOffset.x;
+    [scrollView addSubview:vc.view];
+}
+
 - (void)scrollViewDidEndScrollingAnimation:(nonnull UIScrollView *)scrollView
 {
     // 添加子控制器的View
 
     // 索引
     NSInteger index = scrollView.contentOffset.x / SCPScreenWidth;
+    NSLog(@"%zd",index);
     // 取出子控制器
     UITableViewController *vc = self.childViewControllers[index];
     vc.view.scp_x = scrollView.contentOffset.x;
+
     // 设置内边距
     
 }
