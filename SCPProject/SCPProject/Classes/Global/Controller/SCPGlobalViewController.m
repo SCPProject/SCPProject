@@ -36,35 +36,34 @@
     // 添加子控制器
     [self setupChildVc];
     
-    // 设置内容曾
+    // 设置内容层
     [self setupContentView];
     
-   
 }
 /**
- * 设置内容层
+ *  设置内容层
  */
 - (void)setupContentView
 {
     
     UIScrollView *contentView = [[UIScrollView alloc] init];
-    contentView.frame= self.view.frame;
+    contentView.frame= self.view.bounds;
     contentView.backgroundColor = [UIColor darkGrayColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    button.scp_x = 900;
-    button.scp_y = 100;
-    [contentView addSubview:button];
     contentView.pagingEnabled = YES;
     contentView.delegate = self;
     // NSLog(@"%@",NSStringFromCGRect(self.view.bounds));
     // NSLog(@"%@",NSStringFromCGRect(contentView.bounds));
+    [self.view insertSubview:contentView atIndex:0];
     contentView.contentSize = CGSizeMake(contentView.scp_width *self.childViewControllers.count, 0);
     self.contentView = contentView;
-    [self.view addSubview:contentView];
-
+    
+    // 添加第一个控制器的View
+  //[self scrollViewDidEndScrollingAnimation:contentView];
+   
 }
+
 /**
- * 添加子控制器
+ *  添加子控制器
  */
 - (void)setupChildVc
 {
@@ -84,7 +83,7 @@
 }
 
 /**
- * 设置顶部的标签栏
+ *  设置顶部的标签栏
  */
 - (void)setupTitlesView
 {
@@ -105,7 +104,7 @@
     [titlesView addSubview:yellowView];
     
     /** 添加按钮 */
-    NSArray *array = @[@"全部",@"亚洲",@"欧洲",@"北美"];
+    NSArray *array = @[@"全球",@"亚洲",@"欧洲",@"北美"];
     NSUInteger width = titlesView.scp_width / array.count;
     for (int i = 0; i < array.count ; i++) {
         UIButton *button = [[UIButton alloc] init];
@@ -118,7 +117,7 @@
         [button setTitleColor:[UIColor yellowColor] forState:UIControlStateDisabled];
       
         // 添加button的tag
-        button.tag = i;
+        button.tag = i+1;
         button.titleLabel.font = [UIFont systemFontOfSize:13];
         // 设置按钮选中后底部的View无法显示需要强制布局(强制更新子控件的frame)才能显示出来
         [button layoutIfNeeded];
@@ -157,7 +156,7 @@
     
     // 滚动
     CGPoint offset = self.contentView.contentOffset;
-    offset.x = button.tag * self.contentView.scp_width;
+    offset.x = (button.tag-1) * self.contentView.scp_width;
 
     [self.contentView setContentOffset:offset animated:YES];
    
@@ -166,28 +165,34 @@
 
 
 #pragma mark - UISCrollViewDelegate
+/**
+ *  拖拽结束
+ *
+ *  @param scrollView 传入的scrollView
+ */
 - (void)scrollViewDidEndDecelerating:(nonnull UIScrollView *)scrollView
 {
+    [self scrollViewDidEndScrollingAnimation:scrollView];
     // 索引
     NSInteger index = scrollView.contentOffset.x / SCPScreenWidth;
-    NSLog(@"%zd",index);
-    // 取出子控制器
-    UITableViewController *vc = self.childViewControllers[index];
-    vc.view.scp_x = scrollView.contentOffset.x;
-    [scrollView addSubview:vc.view];
+    UIButton *button = (UIButton *)[self.titlesView viewWithTag:index+1];
+    [self buttonClick:button];
 }
 
+/**
+ *  拖拽动画结束
+ *
+ *  @param scrollView 结束时的scrollView
+ */
 - (void)scrollViewDidEndScrollingAnimation:(nonnull UIScrollView *)scrollView
 {
-    // 添加子控制器的View
 
     // 索引
-    NSInteger index = scrollView.contentOffset.x / SCPScreenWidth;
-    NSLog(@"%zd",index);
+    NSInteger index = scrollView.contentOffset.x / scrollView.scp_width;
     // 取出子控制器
     UITableViewController *vc = self.childViewControllers[index];
-    vc.view.scp_x = scrollView.contentOffset.x;
-
+    vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, SCPScreenWidth, SCPScreenHeight);
+    [scrollView addSubview:vc.view];
     // 设置内边距
     
 }
