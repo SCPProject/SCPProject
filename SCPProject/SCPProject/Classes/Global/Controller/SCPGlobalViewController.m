@@ -61,8 +61,12 @@
     self.contentView = contentView;
     
     // 添加第一个控制器的View
+
   // [self scrollViewDidEndScrollingAnimation:contentView];
     [self scrollViewDidEndDecelerating:contentView];
+
+  [self scrollViewDidEndScrollingAnimation:contentView];
+
    
 }
 
@@ -191,10 +195,10 @@
  */
 - (void)scrollViewDidEndScrollingAnimation:(nonnull UIScrollView *)scrollView
 {
-   
+
     // 索引
     NSInteger index = scrollView.contentOffset.x / scrollView.scp_width;
-    // 取出子控制器
+//    // 取出子控制器
     UITableViewController *vc = self.childViewControllers[index];
     vc.view.frame = CGRectMake(scrollView.contentOffset.x, 0, SCPScreenWidth, SCPScreenHeight);
     [scrollView addSubview:vc.view];
