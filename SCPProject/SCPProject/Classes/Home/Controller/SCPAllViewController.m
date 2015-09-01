@@ -124,7 +124,7 @@
     params[@"action"] = @"RecomTrade";
     params[@"page"] = @1;
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
-        
+       
         [_shops addObjectsFromArray:[SCPAllShopModel objectArrayWithKeyValuesArray:responseObject[@"data"]]];
         
         // 重新加载数据

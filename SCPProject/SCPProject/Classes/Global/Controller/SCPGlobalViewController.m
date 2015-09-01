@@ -7,7 +7,7 @@
 //
 
 #import "SCPGlobalViewController.h"
-#import "SCPGlobalViewController.h"
+#import "SCPGlobleViewController.h"
 #import "SCPTAsiaViewController.h"
 #import "SCPEuropViewController.h"
 #import "SCPNorthAmeracaViewController.h"
@@ -39,6 +39,9 @@
     // 设置内容层
     [self setupContentView];
     
+    // 背景图片
+     self.view.backgroundColor = SCPMainBackground;
+    
 }
 /**
  *  设置内容层
@@ -58,7 +61,8 @@
     self.contentView = contentView;
     
     // 添加第一个控制器的View
-  //[self scrollViewDidEndScrollingAnimation:contentView];
+  // [self scrollViewDidEndScrollingAnimation:contentView];
+    [self scrollViewDidEndDecelerating:contentView];
    
 }
 
@@ -67,7 +71,7 @@
  */
 - (void)setupChildVc
 {
-    SCPGlobalViewController *globleVc = [[SCPGlobalViewController alloc] init];
+    SCPGlobleViewController *globleVc = [[SCPGlobleViewController alloc] init];
     [self addChildViewController:globleVc];
     
     SCPTAsiaViewController *asiaVc = [[SCPTAsiaViewController alloc] init];
@@ -172,6 +176,7 @@
  */
 - (void)scrollViewDidEndDecelerating:(nonnull UIScrollView *)scrollView
 {
+   
     [self scrollViewDidEndScrollingAnimation:scrollView];
     // 索引
     NSInteger index = scrollView.contentOffset.x / SCPScreenWidth;
@@ -186,7 +191,7 @@
  */
 - (void)scrollViewDidEndScrollingAnimation:(nonnull UIScrollView *)scrollView
 {
-
+   
     // 索引
     NSInteger index = scrollView.contentOffset.x / scrollView.scp_width;
     // 取出子控制器

@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface SCPAsia : NSObject
-
+/** 图片 */
+@property(nonatomic, copy)NSString *thumb;
+/** 宽 */
+@property (nonatomic, assign) CGFloat width;
+/** 高 */
+@property (nonatomic, assign) CGFloat height;
 @end
 
 //{
