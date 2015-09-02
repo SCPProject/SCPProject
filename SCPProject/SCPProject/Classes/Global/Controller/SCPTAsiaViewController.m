@@ -12,6 +12,7 @@
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
+#import "SCPShopsTableViewCell.h"
 
 
 @interface SCPTAsiaViewController ()
@@ -20,39 +21,39 @@
 @property(nonatomic, strong)AFHTTPSessionManager *manager;
 
 /** 参数数据 */
-@property(nonatomic, strong)NSMutableArray *shops;
+@property(nonatomic, strong)NSArray *shops;
 
 @end
+
+static NSString * const SCPID = @"shopscell";
 
 @implementation SCPTAsiaViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // 删除分割线
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    // 设置背景图片
-    self.view.backgroundColor = SCPMainBackground;
-    
+   
+    [self setupTableView];
     // 网络请求
     [self setUpNetwork];
 }
 
 - (void)setUpNetwork
 {
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
    
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"version"] = @"v3.2";
     params[@"op"] = @"app_api";
     params[@"action"] = @"QuanQiu";
+    params[@"id"] = @3476;
     
     // 请求
     
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-    
-        self.shops = [SCPAsia objectArrayWithKeyValuesArray:responseObject];
+        NSLog(@"%@",responseObject);
+        self.shops = [SCPAsia objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        NSLog(@"%zd",self.shops.count);
 //    [self.shops addObjectsFromArray:[SCPAsia objectArrayWithKeyValuesArray:responseObject[@"data"]]];
 
         [self.tableView reloadData];
@@ -64,7 +65,16 @@
 }
 
 
-
+- (void)setupTableView
+{
+   
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SCPShopsTableViewCell class]) bundle:nil] forCellReuseIdentifier:SCPID];
+    self.tableView.rowHeight = [UIScreen mainScreen].bounds.size.width * (300/640.0);
+    // 删除分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 设置背景图片
+    self.view.backgroundColor = SCPMainBackground;
+}
 
 
 
@@ -87,27 +97,33 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+//    NSLog(@"%zd",self.shops.count);
     return self.shops.count;
+
 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *ID = @"cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-       
-    }
-    cell.backgroundColor = [UIColor purpleColor];
-    NSDictionary *shop = self.shops[indexPath.row];
-    cell.textLabel.text = shop[@"name"];
-//    [cell.backgroundView sd_setImageWithURL:[NSURL URLWithString:shop[@"thumb"]] placeholderImage:[UIImage imageNamed:@"empty_bg"]];
 
     
+    SCPShopsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SCPID];
+    cell.backgroundColor = SCPMainBackground;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.asia = self.shops[indexPath.row];
+//   
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+//       
+//    }
+//   // cell.backgroundColor = [UIColor purpleColor];
+//    NSDictionary *shop = self.shops[indexPath.row];
+//    cell.textLabel.text = shop[@"name"];
+////    [cell.backgroundView sd_setImageWithURL:[NSURL URLWithString:shop[@"thumb"]] placeholderImage:[UIImage imageNamed:@"empty_bg"]];
+//
+//    
     return cell;
 }
 

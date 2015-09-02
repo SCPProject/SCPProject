@@ -7,92 +7,112 @@
 //
 
 #import "SCPNorthAmeracaViewController.h"
+#import <AFHTTPSessionManager.h>
+#import "SCPShopsTableViewCell.h"
+#import "SCPNorthAmerica.h"
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
+
 
 @interface SCPNorthAmeracaViewController ()
 
+/** manager */
+@property(nonatomic, strong)AFHTTPSessionManager *manager;
+
+/** 参数数据 */
+@property(nonatomic, strong)NSArray *shops;
+
+
 @end
 
+static NSString *const SCPID = @"shopcell";
 @implementation SCPNorthAmeracaViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+    [self setUpNetwork];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self setupTableView];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setUpNetwork
+{
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"version"] = @"v3.2";
+    params[@"op"] = @"app_api";
+    params[@"action"] = @"QuanQiu";
+    params[@"id"] = @3478;
+    
+    // 请求
+    
+    [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        self.shops = [SCPNorthAmerica objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        NSLog(@"%zd",self.shops.count);
+        //    [self.shops addObjectsFromArray:[SCPAsia objectArrayWithKeyValuesArray:responseObject[@"data"]]];
+        
+        [self.tableView reloadData];
+        [SVProgressHUD dismiss];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];
+    }];
+    
 }
+
+
+- (void)setupTableView
+{
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SCPShopsTableViewCell class]) bundle:nil] forCellReuseIdentifier:SCPID];
+    self.tableView.rowHeight = [UIScreen mainScreen].bounds.size.width * (300/640.0);
+    // 删除分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 设置背景图片
+    self.view.backgroundColor = SCPMainBackground;
+}
+
+
+
+#pragma mark - 懒加载
+- (AFHTTPSessionManager *)manager
+{
+    if(_manager == nil)
+    {
+        _manager = [AFHTTPSessionManager manager];
+        NSMutableSet *contentTypes = [[NSMutableSet alloc] initWithSet:_manager.responseSerializer.acceptableContentTypes];
+        [contentTypes addObject:@"text/html"];//添加类型
+        _manager.responseSerializer.acceptableContentTypes = contentTypes;
+    }
+    
+    return _manager;
+}
+
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
+    //    NSLog(@"%zd",self.shops.count);
+    return self.shops.count;
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *ID = @"cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor blueColor];
-    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@----%zd", [self class], indexPath.row];
+    SCPShopsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SCPID];
+    cell.backgroundColor = SCPMainBackground;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.asia = self.shops[indexPath.row];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

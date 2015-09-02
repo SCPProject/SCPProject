@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SCPAsia;
 @interface SCPShopsTableViewCell : UITableViewCell
+
+/** 数据模型 */
+@property(nonatomic, strong)SCPAsia *asia;
 
 @end
