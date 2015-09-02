@@ -54,6 +54,8 @@
     contentView.backgroundColor = [UIColor darkGrayColor];
     contentView.pagingEnabled = YES;
     contentView.delegate = self;
+    contentView.showsVerticalScrollIndicator = false;
+    
     // NSLog(@"%@",NSStringFromCGRect(self.view.bounds));
     // NSLog(@"%@",NSStringFromCGRect(contentView.bounds));
     [self.view insertSubview:contentView atIndex:0];

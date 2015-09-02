@@ -16,6 +16,8 @@
 @property (nonatomic, assign) CGFloat width;
 /** 高 */
 @property (nonatomic, assign) CGFloat height;
+/**  linkageid */
+@property (nonatomic, copy) NSString *linkageid;
 
 @end
 

@@ -12,6 +12,7 @@
 #import "SCPGloble.h"
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
+#import <MJRefresh.h>
 
 @interface SCPGlobleViewController ()
 
@@ -32,7 +33,47 @@ static NSString * const SCPID = @"shopscell";
    
     [self setupTableView];
     
-    [self setUpNetwork];
+    [self setupRefresh];
+}
+
+/**
+ *  上拉下拉
+ */
+- (void)setupRefresh
+{
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setUpNetwork)];
+        [self.tableView.header beginRefreshing];
+        self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+
+}
+
+- (void)loadMoreTopics
+{
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"version"] = @"v3.2";
+    params[@"op"] = @"app_api";
+    params[@"action"] = @"QuanQiu";
+    params[@"id"] = 0;
+    
+    // 请求
+    
+    [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        self.shops = [SCPGloble objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        NSLog(@"%zd",self.shops.count);
+        //    [self.shops addObjectsFromArray:[SCPAsia objectArrayWithKeyValuesArray:responseObject[@"data"]]];
+        
+        [self.tableView reloadData];
+        [SVProgressHUD dismiss];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];
+    }];
+    
+    [self.tableView.footer endRefreshing];
+    
 }
 
 - (void)setUpNetwork
@@ -60,6 +101,8 @@ static NSString * const SCPID = @"shopscell";
         [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];
     }];
     
+    // 结束刷新
+    [self.tableView.header endRefreshing];
 }
 
 
@@ -68,6 +111,8 @@ static NSString * const SCPID = @"shopscell";
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SCPShopsTableViewCell class]) bundle:nil] forCellReuseIdentifier:SCPID];
     self.tableView.rowHeight = [UIScreen mainScreen].bounds.size.width * (300/640.0);
+    // 设置TabbleView的内边距
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, SCPTabbleViewBottomInset, 0);
     // 删除分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 设置背景图片
@@ -108,20 +153,6 @@ static NSString * const SCPID = @"shopscell";
     cell.backgroundColor = SCPMainBackground;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.asia = self.shops[indexPath.row];
-    //
-    //
-    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    //
-    //    if (cell == nil) {
-    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    //
-    //    }
-    //   // cell.backgroundColor = [UIColor purpleColor];
-    //    NSDictionary *shop = self.shops[indexPath.row];
-    //    cell.textLabel.text = shop[@"name"];
-    ////    [cell.backgroundView sd_setImageWithURL:[NSURL URLWithString:shop[@"thumb"]] placeholderImage:[UIImage imageNamed:@"empty_bg"]];
-    //
-    //    
     return cell;
 }
 
