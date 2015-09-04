@@ -28,22 +28,12 @@
 {
       _asia = asia;
     [self.scpImageView sd_setImageWithURL:[NSURL URLWithString:asia.thumb] placeholderImage:[UIImage imageNamed:@"empty_bg"]];
-}
+    }
 
-//- (void)setFrame:(CGRect)frame
-//{
-//    
-//    frame.size.width = [UIScreen mainScreen].bounds.size.width;
-//    frame.size.height = frame.size.width * (self.asia.height / self.asia.width);
-//  
-//    [super setFrame:frame];
-//    
-//}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 @end

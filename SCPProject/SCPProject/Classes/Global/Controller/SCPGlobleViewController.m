@@ -13,14 +13,20 @@
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
+#import "SCPChinaTableViewController.h"
+#import "SCPItalyTableViewController.h"
+#import "SCPKoreaTableViewController.h"
 
-@interface SCPGlobleViewController ()
+@interface SCPGlobleViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 /** manager */
 @property(nonatomic, strong)AFHTTPSessionManager *manager;
-
+/** glo属性 */
+@property(nonatomic, strong)SCPGloble *glo;
 /** 参数数据 */
 @property(nonatomic, strong)NSArray *shops;
+/** cell */
+@property(nonatomic, weak)SCPShopsTableViewCell *cell;
 
 @end
 
@@ -90,10 +96,9 @@ static NSString * const SCPID = @"shopscell";
     // 请求
     
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         self.shops = [SCPGloble objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        NSLog(@"%zd",self.shops.count);
-        //    [self.shops addObjectsFromArray:[SCPAsia objectArrayWithKeyValuesArray:responseObject[@"data"]]];
+       
         
         [self.tableView reloadData];
         [SVProgressHUD dismiss];
@@ -137,23 +142,34 @@ static NSString * const SCPID = @"shopscell";
 
 
 
-#pragma mark - Table view data source
+#pragma mark - Tableview datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //    NSLog(@"%zd",self.shops.count);
+    
     return self.shops.count;
-    
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    self.cell = [tableView dequeueReusableCellWithIdentifier:SCPID];
+    _cell.backgroundColor = SCPMainBackground;
+    _cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    _cell.asia = self.shops[indexPath.row];
+    return _cell;
+}
+
+#pragma mark - Tableview delegate
+- (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+        self.glo = self.shops[indexPath.row];
+    if ([_glo.linkageid isEqualToString:@"3479"]) {
+        [self.navigationController pushViewController:[[SCPChinaTableViewController alloc] init] animated:YES];
+    }else if([_glo.linkageid isEqualToString:@"3486"]){
+   [self.navigationController pushViewController:[[SCPItalyTableViewController alloc] init] animated:YES];
+    }else if([_glo.linkageid isEqualToString:@"3481"]){
+       [self.navigationController pushViewController:[[SCPKoreaTableViewController alloc] init] animated:YES];
+    }
     
-    SCPShopsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SCPID];
-    cell.backgroundColor = SCPMainBackground;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.asia = self.shops[indexPath.row];
-    return cell;
 }
 
 @end

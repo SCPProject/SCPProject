@@ -1,39 +1,38 @@
 //
-//  SCPSaleViewController.m
+//  SCPChinaTableViewController.m
 //  SCPProject
 //
-//  Created by 刘蒲艳 on 15/8/24.
-//  Copyright (c) 2015年 liupuyan. All rights reserved.
+//  Created by 韩辉 on 15/9/2.
+//  Copyright © 2015年 liupuyan. All rights reserved.
 //
 
-#import "SCPSaleViewController.h"
+#import "SCPChinaTableViewController.h"
 #import <AFHTTPSessionManager.h>
-#import "SCPSaleTableViewCell.h"
-#import "SCPSale.h"
 #import <SVProgressHUD.h>
+#import "SCPArea.h"
 #import <MJExtension.h>
 #import <MJRefresh.h>
+#import "SCPAreaTableViewCell.h"
 
-
-
-@interface SCPSaleViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface SCPChinaTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 /** manager */
 @property(nonatomic, strong)AFHTTPSessionManager *manager;
 /** glo属性 */
-@property(nonatomic, strong)SCPSale *glo;
+@property(nonatomic, strong)SCPArea *glo;
 /** 参数数据 */
 @property(nonatomic, strong)NSArray *shops;
 /** cell */
-@property(nonatomic, weak)SCPSaleTableViewCell *cell;
+@property(nonatomic, weak)SCPAreaTableViewCell *cell;
 
 @end
 
-static NSString * const SCPID = @"salecell";
+static NSString * const SCPID = @"areacell";
 
-@implementation SCPSaleViewController
+@implementation SCPChinaTableViewController
 
 - (void)viewDidLoad {
+   
     [super viewDidLoad];
     
     [self setupTableView];
@@ -60,16 +59,29 @@ static NSString * const SCPID = @"salecell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"version"] = @"v3.2";
     params[@"op"] = @"app_api";
-    params[@"action"] = @"SaleList";
+    params[@"action"] = @"AroundBus";
+    params[@"hash"] =@"d2a57dc1d883fd21fb9951699df71cc7";
+    params[@"linkageid"] = @"3479";
+    params[@"lat"] = @"23.136480";
+    params[@"lng"] = @"113.368141";
     params[@"page"] = @"1";
-
+//    op	app_api
+//    action	AroundBus
+//    version	v3.2
+//    hash	d2a57dc1d883fd21fb9951699df71cc7
+//    lat	23.136480
+//    linkageid	3479
+//    lng	113.368141
+//    page	1
     // 请求
     
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        self.shops = [SCPSale objectArrayWithKeyValuesArray:responseObject[@"data"]];
-
-        [self.tableView reloadData];
+        NSLog(@"%@",responseObject);
+        self.shops = [SCPArea objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        NSLog(@"%zd",self.shops.count);
+        //    [self.shops addObjectsFromArray:[SCPAsia objectArrayWithKeyValuesArray:responseObject[@"data"]]];
         
+        [self.tableView reloadData];
         [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];
@@ -87,14 +99,18 @@ static NSString * const SCPID = @"salecell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"version"] = @"v3.2";
     params[@"op"] = @"app_api";
-    params[@"action"] = @"SaleList";
+    params[@"action"] = @"AroundBus";
+    params[@"hash"] =@"d2a57dc1d883fd21fb9951699df71cc7";
+    params[@"linkageid"] = @"3479";
+    params[@"lat"] = @"23.136480";
+    params[@"lng"] = @"113.368141";
     params[@"page"] = @"1";
     
     // 请求
     
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-      
-        self.shops = [SCPSale objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        //        NSLog(@"%@",responseObject);
+        self.shops = [SCPArea objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
         
         [self.tableView reloadData];
@@ -111,12 +127,12 @@ static NSString * const SCPID = @"salecell";
 - (void)setupTableView
 {
     
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SCPSaleTableViewCell class]) bundle:nil] forCellReuseIdentifier:SCPID];
-    self.tableView.rowHeight = [UIScreen mainScreen].bounds.size.width * (281/640.0) + 9;
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SCPAreaTableViewCell class]) bundle:nil] forCellReuseIdentifier:SCPID];
+    self.tableView.rowHeight = [UIScreen mainScreen].bounds.size.width * (240/640.0) + 42;
     // 设置TabbleView的内边距
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    // 设置标题
-    self.title = @"特卖专场";
+    // 设置titletext
+    self.title = @"中国";
     // 删除分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 设置背景图片
@@ -153,14 +169,14 @@ static NSString * const SCPID = @"salecell";
     self.cell = [tableView dequeueReusableCellWithIdentifier:SCPID];
     _cell.backgroundColor = SCPMainBackground;
     _cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    _cell.sale = self.shops[indexPath.row];
+    _cell.area = self.shops[indexPath.row];
     return _cell;
 }
 
 #pragma mark - Tableview delegate
 - (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-//    self.glo = self.shops[indexPath.row];
+    self.glo = self.shops[indexPath.row];
 //    if ([_glo.linkageid isEqualToString:@"3479"]) {
 //        [self.navigationController pushViewController:[[SCPChinaTableViewController alloc] init] animated:YES];
 //    }else if([_glo.linkageid isEqualToString:@"3486"]){
@@ -168,7 +184,8 @@ static NSString * const SCPID = @"salecell";
 //    }else if([_glo.linkageid isEqualToString:@"3481"]){
 //        [self.navigationController pushViewController:[[SCPKoreaTableViewController alloc] init] animated:YES];
 //    }
-    
+//    
 }
 
 @end
+

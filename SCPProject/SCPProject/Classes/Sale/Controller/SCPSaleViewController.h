@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCPSaleViewController : UIViewController
+@interface SCPSaleViewController : UITableViewController
+
+
 
 @end
