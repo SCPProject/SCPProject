@@ -22,10 +22,14 @@
 @property(nonatomic, strong)AFHTTPSessionManager *manager;
 /** glo属性 */
 @property(nonatomic, strong)SCPSale *glo;
+/** 当前页码 */
+@property (nonatomic, assign) NSInteger page;
 /** 参数数据 */
-@property(nonatomic, strong)NSArray *shops;
+@property(nonatomic, strong)NSMutableArray *shops;
 /** cell */
 @property(nonatomic, weak)SCPSaleTableViewCell *cell;
+/** 上一次的请求 */
+@property(nonatomic, strong)NSDictionary *params;
 
 @end
 
@@ -55,28 +59,37 @@ static NSString * const SCPID = @"salecell";
 - (void)loadMoreTopics
 {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    
+    self.page++;
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"version"] = @"v3.2";
     params[@"op"] = @"app_api";
     params[@"action"] = @"SaleList";
-    params[@"page"] = @"1";
+    params[@"page"] = @(self.page);
+    self.params = params;
 
     // 请求
     
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        self.shops = [SCPSale objectArrayWithKeyValuesArray:responseObject[@"data"]];
-
+        
+        if (self.params != params) {
+            [SVProgressHUD showInfoWithStatus:@"已无更多数据" maskType:SVProgressHUDMaskTypeBlack];
+            return ;
+        }
+        NSArray *newShops = [SCPSale objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.shops addObjectsFromArray:newShops];
+        
         [self.tableView reloadData];
         
         [SVProgressHUD dismiss];
+        //停止刷新
+        [self.tableView.footer endRefreshing];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];
+        [self.tableView.footer endRefreshing];
+        // 恢复页码
+        self.page--;
     }];
-    
-    [self.tableView.footer endRefreshing];
-    
 }
 
 - (void)setUpNetwork
@@ -88,21 +101,32 @@ static NSString * const SCPID = @"salecell";
     params[@"version"] = @"v3.2";
     params[@"op"] = @"app_api";
     params[@"action"] = @"SaleList";
-    params[@"page"] = @"1";
+    self.params = params;
+    
     
     // 请求
     
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
       
+        if (self.params != params) {
+            [SVProgressHUD showInfoWithStatus:@"已无更多数据" maskType:SVProgressHUDMaskTypeBlack];
+            return ;
+        }
+        
         self.shops = [SCPSale objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
-        
+        // 刷新表格
         [self.tableView reloadData];
+        
+        // 结束刷新
+        [self.tableView.header endRefreshing];
         [SVProgressHUD dismiss];
+        
+        //清空页码
+        self.page = 1;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];
     }];
-    
     // 结束刷新
     [self.tableView.header endRefreshing];
 }
