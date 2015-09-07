@@ -13,5 +13,8 @@
 /** imageArray */
 @property (nonatomic,strong) NSArray *imageArray;
 
+// 返回单元格的标识
++ (NSString *)scpAllHeaderID;
+
 + (instancetype)headerView:(UICollectionView *)collectionView atIndexPath:(nonnull NSIndexPath *)indexPath;
 @end

@@ -17,9 +17,14 @@
 
 @implementation SCPAllHeaderReusableView
 
++ (NSString *)scpAllHeaderID
+{
+    return @"allHeaderCell";
+}
+
 + (instancetype)headerView:(UICollectionView *)collectionView atIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    SCPAllHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
+    SCPAllHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:[self scpAllHeaderID] forIndexPath:indexPath];
     
     return headerView;
 }
@@ -32,7 +37,7 @@
         SCPImagesScroll *images = [SCPImagesScroll viewFromXib];
         images.frame = CGRectMake(0, 0, self.scp_width, 130);
         images.otherColor = [UIColor grayColor];
-        images.currentColor = [UIColor blackColor];
+        images.currentColor = [UIColor whiteColor];
         
         [self addSubview:images];
         self.imageScroll = images;
@@ -45,9 +50,11 @@
         UILabel *label = [[UILabel alloc] init];
         label.text = @"特价推荐";
         label.textColor = SCPColor(250, 250, 250);
+        label.font = [UIFont systemFontOfSize:13];
         [label sizeToFit];
-        label.scp_x = 20;
-        label.scp_centerY = saleView.scp_centerY;
+        label.scp_x = 10;
+        label.scp_centerY = saleView.scp_height * 0.5;
+        [saleView addSubview:label];
         
         // 添加下划线
         UIView *underlineView = [[UIView alloc] init];
@@ -55,6 +62,7 @@
         CGFloat margin = 2;
         CGFloat underlineViewH = 1;
         underlineView.frame = CGRectMake(margin, saleView.scp_height - 5, saleView.scp_width - 2 * margin, underlineViewH);
+        [saleView addSubview:underlineView];
         [self addSubview:saleView];
     }
     return self;
@@ -65,5 +73,4 @@
     _imageArray = imageArray;
     self.imageScroll.imagesArray = imageArray;
 }
-
 @end

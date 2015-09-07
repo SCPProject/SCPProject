@@ -84,14 +84,17 @@
     flowLayout.sectionInset = UIEdgeInsetsMake(SCPHomeMargin, SCPHomeMargin, SCPHomeMargin, SCPHomeMargin);
     // 列间距
     flowLayout.minimumLineSpacing = SCPHomeMargin * 0.5;
+    // 设置头部
+    flowLayout.headerReferenceSize = CGSizeMake(self.view.scp_width, 165);
+    
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
-    
     [self.view addSubview:collectionView];
     self.collectionView = collectionView;
     // 注册
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCPAllCell class]) bundle:nil] forCellWithReuseIdentifier:[SCPAllCell scpAllCellID]];
+    [self.collectionView registerClass:[SCPAllHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:[SCPAllHeaderReusableView scpAllHeaderID]];
 }
 
 // 加载滚动图片
@@ -160,7 +163,10 @@
     if (kind == UICollectionElementKindSectionHeader){
         
         reusableview = [SCPAllHeaderReusableView headerView:collectionView atIndexPath:indexPath];
-        reusableview.imageArray = self.imageArray;
+        if(self.imageArray.count > 0)
+        {
+            reusableview.imageArray = self.imageArray;
+        }
     }
     return reusableview;
 }

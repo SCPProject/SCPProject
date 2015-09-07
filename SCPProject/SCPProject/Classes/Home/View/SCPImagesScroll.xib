@@ -11,13 +11,10 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mrbg" translatesAutoresizingMaskIntoConstraints="NO" id="bt8-Iw-Bo6">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
-                </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m36-uc-Uq6">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m36-uc-Uq6">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="omL-qa-TfG">
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="omL-qa-TfG" customClass="SCPPageControl">
                     <rect key="frame" x="131" y="100" width="39" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="rEL-wW-6jb"/>
@@ -26,14 +23,14 @@
                     <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="omL-qa-TfG" secondAttribute="centerX" id="5Pr-Ca-6IC"/>
-                <constraint firstItem="bt8-Iw-Bo6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7x4-1f-3HO"/>
-                <constraint firstAttribute="trailing" secondItem="bt8-Iw-Bo6" secondAttribute="trailing" id="Dv3-XF-xGC"/>
-                <constraint firstAttribute="bottom" secondItem="bt8-Iw-Bo6" secondAttribute="bottom" id="oGA-Q9-0zM"/>
-                <constraint firstItem="bt8-Iw-Bo6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ovU-V4-XVo"/>
+                <constraint firstItem="m36-uc-Uq6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Ne-A2-8Ot"/>
+                <constraint firstAttribute="trailing" secondItem="m36-uc-Uq6" secondAttribute="trailing" id="8sE-Uz-9OH"/>
+                <constraint firstItem="m36-uc-Uq6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NJc-jg-pg2"/>
                 <constraint firstAttribute="bottom" secondItem="omL-qa-TfG" secondAttribute="bottom" id="vxa-jT-bfR"/>
+                <constraint firstAttribute="bottom" secondItem="m36-uc-Uq6" secondAttribute="bottom" id="w3h-20-8Ih"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -44,7 +41,4 @@
             <point key="canvasLocation" x="245" y="331"/>
         </view>
     </objects>
-    <resources>
-        <image name="mrbg" width="320" height="320"/>
-    </resources>
 </document>
