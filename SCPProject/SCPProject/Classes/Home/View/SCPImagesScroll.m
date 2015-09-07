@@ -7,10 +7,12 @@
 //
 
 #import "SCPImagesScroll.h"
+#import <UIImageView+WebCache.h>
+#import "SCPPageControl.h"
 
 @interface SCPImagesScroll () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet SCPPageControl *pageControl;
 @property (nonatomic,strong) NSTimer *timer;
 
 // 显示的图片
@@ -48,6 +50,15 @@
     [self addTimer];
 }
 
+- (nonnull instancetype)initWithFrame:(CGRect)frame
+{
+    if(self == [super initWithFrame:frame])
+    {
+        [self setup];
+    }
+    return self;
+}
+
 - (void)setup
 {
     self.scrollView.delegate = self;
@@ -57,32 +68,39 @@
     
     self.scrollView.pagingEnabled = YES;
     
-    CGFloat scrollW = self.scrollView.frame.size.width;
-    CGFloat scrollH = self.scrollView.frame.size.height;
-    
-    
     // 添加可重复利用的图片
     self.reuseImage = [[UIImageView alloc] init];
-    self.reuseImage.frame = CGRectMake(0, 0, scrollW, scrollH);
     [self.scrollView addSubview:self.reuseImage];
     
     // 添加显示的图片
     self.showImage = [[UIImageView alloc] init];
-    self.showImage.frame = CGRectMake(scrollW, 0, scrollW, scrollH);
     // 设置图片索引
     self.showImage.tag = 0;
     [self.scrollView addSubview:self.showImage];
     
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGFloat scrollW = self.scrollView.frame.size.width;
+    CGFloat scrollH = self.scrollView.frame.size.height;
+    self.reuseImage.frame = CGRectMake(0, 0, scrollW, scrollH);
+    self.showImage.frame = CGRectMake(scrollW, 0, scrollW, scrollH);
+    
     self.scrollView.contentSize = CGSizeMake(scrollW * 3, 0);
     self.scrollView.contentOffset = CGPointMake(scrollW, 0);
-
 }
 
 - (void)setImagesArray:(NSArray *)imagesArray
 {
     _imagesArray = imagesArray;
-    self.showImage.image = [imagesArray firstObject];
+    [self.showImage sd_setImageWithURL:[NSURL URLWithString:[imagesArray firstObject]] placeholderImage:[UIImage imageNamed:@"mrbg"]];
     self.pageControl.numberOfPages = self.imagesArray.count;
+    
+    // 设置点的大小
+    [self.pageControl sizeForNumberOfPages:self.pageControl.numberOfPages];
 }
 
 - (void)setOtherColor:(UIColor *)otherColor
@@ -158,8 +176,7 @@
     // 给reuseImageView赋值图片
     self.reuseImage.frame = reuseFrame;
     self.reuseImage.tag = index;
-    self.reuseImage.image = self.imagesArray[index];
-    
+    [self.reuseImage sd_setImageWithURL:[NSURL URLWithString:self.imagesArray[index]] placeholderImage:[UIImage imageNamed:@"mrbg"]];
     if(offset.x <= 0 || offset.x >= self.scrollView.frame.size.width * 2)
     {
         UIImageView *tmpImageView = self.showImage;
