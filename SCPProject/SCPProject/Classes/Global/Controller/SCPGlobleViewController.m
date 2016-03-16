@@ -69,10 +69,10 @@ static NSString * const SCPID = @"shopscell";
     [self.manager GET:@"http://www.shepinxiu.com/api.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
         self.shops = [SCPGloble objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        NSLog(@"%zd",self.shops.count);
+        NSLog(@"--------%@",responseObject);
         //    [self.shops addObjectsFromArray:[SCPAsia objectArrayWithKeyValuesArray:responseObject[@"data"]]];
         
-        [self.tableView reloadData];
+         [self.tableView reloadData];
         [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];

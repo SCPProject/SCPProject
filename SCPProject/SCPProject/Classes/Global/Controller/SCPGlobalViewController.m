@@ -149,7 +149,11 @@
 
 }
 
-
+/**
+ *  监听按钮的点击
+ *
+ *  @param button 传入的按钮
+ */
 - (void)buttonClick:(UIButton *)button
 {
     // 修改按钮状态
